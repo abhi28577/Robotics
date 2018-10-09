@@ -1,0 +1,54 @@
+Raspberry Pi Alexa Configuration
+https://github.com/carolinedunn/Alexa-RPi-AutoStart
+
+Raspberry Settings
+
+1. To add/delete Passwords to localhost/Other Networks - 
+    1. sudo nano /Users/abhi28577/.ssh/known_hosts
+    2. To Remove/Delete - ssh-keygen -R <Ip Address>
+    3. To Add Password - ssh <Ip Address> followed by Password Prompt
+2. To Run Raspberry Pi on Raspberry Pi 3
+    1. Add ssh file within Boot Directory
+3. To check Ethernet settings for Raspberry Pi
+    1. ping raspberrypi.local
+4. To check Internet/LAN Settings, Use anyone of command below - 
+    1. netstat
+    2. ifconfig
+    3. telnet <Ip Address>
+5. To Copy Image File of Latest Raspberry Jessie/Wheezy
+    1. diskutil unmountDisk /dev/<diskN>
+    2. sudo dd bs=1m if=/Personal/Robotics/Jasper/2017-01-11-raspbian-jessie.img of=/dev/<diskN>
+6.  To ‘Expand Filesystem’ and restart your Pi - 
+    1. sudo raspi-config
+7. Run the following commands to update Pi and install some useful tools - 
+    1. sudo apt-get update
+    2. sudo apt-get upgrade --yes
+    3. sudo apt-get install vim git-core python-dev python-pip bison libasound2-dev libportaudio-dev python-pyaudio --yes
+8. Plug in your USB microphone. Let’s open up an ALSA configuration file in vim - 
+    1. Reference - http://www.knight-of-pi.org/raspberry-pi-enable-an-usb-sound-card-for-raspbian-jessie/
+        1. sudo vim /usr/share/alsa/alsa.conf
+        2. defaults.ctl.card 1
+        3. defaults.pcm.card 1
+        4. Saving any file -> :x
+9. Recording for the First Time then restart PI - 
+    1. sudo arecord temp.wav
+    2. sudo arecord -D plughw:1,0 test.wav
+10. Playing the Recorded Version - 
+    1. aplay -D hw:1,0 temp.wav
+    2. aplay test.wav
+11. To Adjust the Volume/Bass
+    1. alsamixer
+12. To Install Upgraded Google gTTS
+    1. sudo pip3 install --upgrade gTTS
+13. To avoud download.py error - 
+    1. sudo easy_install --upgrade pip
+—————————————————————————————————————————————————————
+Raspberry Pi - Screensharing Password - 12345678
+To Start Raspberry Pi Desktop - sudo /etc/init.d/avahi-daemon restart
+UserName/Password for Connect As - pi/raspberry
+Screen Sharing using MAC - sudo /etc/init.d/tightvncserver start
+
+WebSite Reference - 
+https://github.com/HackerShackOfficial/Raspberry-Pi-VNC-Mac
+https://www.lifehacker.com.au/2016/10/how-to-build-your-own-amazon-echo-with-a-raspberry-pi/
+https://github.com/carolinedunn/Alexa-RPi-AutoStart
