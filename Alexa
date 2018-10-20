@@ -2,6 +2,7 @@ Fact Skill
 https://developer.amazon.com/alexa-skills-kit/tutorials/fact-skill-1
 https://github.com/alexa/skill-sample-python-fact
 https://blog.prototypr.io/using-voice-commands-to-control-a-website-with-amazon-echo-alexa-part-1-6-a35edbfef405
+Troubleshhot for Skill Id/ARN - https://forums.developer.amazon.com/questions/182726/the-trigger-setting-for-the-lambda-arnawslambdaus.html
 
 Creating of Alexa Interaction Model Skill - 
 Open developer.amazon.com
@@ -19,6 +20,107 @@ Click on 'Invocation Name' -> Input '<Invocation Name>'
 Click on 'Intents, Samples and Slots'
 Click on 'Add' next to 'Intents'
 Select 'Create Custom Intent' Under 'Add Intent'
+Click on 'Save Model'
 Input '<Name of Intention>' and click on 'Create Custom Intent' Button
 Input Utterances in 'Sample Utterances' against 'Intent'
-Input 'Input Slot' against 'Sample  Utterance' with <Slot Type>
+Input 'Input Slot' against 'Sample  Utterance' with '<Slot Type>'
+Click 'Save Model'
+Click on 'Build Model'
+Login into aws.amazon.com for Creating Lambda Function for Alexa Back-End
+Change Region to 'US East (N. Virginia)'
+Click on 'Lambda'
+Click on 'Create Fucntion'
+Select 'Blueprints' option
+Choose 'alexa-skill-kit-sdk-factskill'
+Click on 'Configure'
+Input 'Name'
+Select 'Create a Custom Role' against 'Role'
+Click on 'Create Function' Button
+Click on Newly Created Function & Scroll Down to Code Editor
+Remove codes having lines as - 
+"
+const SKILL_NAME = 'Space Facts';
+const GET_FACT_MESSAGE = "Here's your fact: ";
+const HELP_MESSAGE = 'You can say tell me a space fact, or, you can say exit... What can I help you with?';
+const HELP_REPROMPT = 'What can I help you with?';
+const STOP_MESSAGE = 'Goodbye!';
+
+//=========================================================================================================================================
+//TODO: Replace this data with your own.  You can find translations of this data at http://github.com/alexa/skill-sample-node-js-fact/data
+//=========================================================================================================================================
+const data = [
+    'A year on Mercury is just 88 days long.',
+    'Despite being farther from the Sun, Venus experiences higher temperatures than Mercury.',
+    'Venus rotates counter-clockwise, possibly because of a collision in the past with an asteroid.',
+    'On Mars, the Sun appears about half the size as it does on Earth.',
+    'Earth is the only planet not named after a god.',
+    'Jupiter has the shortest day of all the planets.',
+    'The Milky Way galaxy will collide with the Andromeda Galaxy in about 5 billion years.',
+    'The Sun contains 99.86% of the mass in the Solar System.',
+    'The Sun is an almost perfect sphere.',
+    'A total solar eclipse can happen once every 1 to 2 years. This makes them a rare event.',
+    'Saturn radiates two and a half times more energy into space than it receives from the sun.',
+    'The temperature inside the Sun can reach 15 million degrees Celsius.',
+    'The Moon is moving approximately 3.8 cm away from our planet every year.',
+];
+"
+Code should like after deleting Functional Details- 
+"
+const handlers = {
+    'LaunchRequest': function () {
+        
+    },
+    'GetNewFactIntent': function () {
+        
+    },
+    'AMAZON.HelpIntent': function () {
+        
+    },
+    'AMAZON.CancelIntent': function () {
+        
+    },
+    'AMAZON.StopIntent': function () {
+        
+    },
+};
+"
+In the ‘LaunchRequest’: function () { } code, add the following between the curly braces, so that your code looks like this:
+const handlers = {
+    'LaunchRequest': function () {
+        this.emit(':tell', 'Welcome to Nennepedia');
+    },
+    'AMAZON.HelpIntent': function () {
+        this.emit(':tell', 'Dear Listener, What Information would you like to know?');  
+    },
+    'AMAZON.CancelIntent': function () {
+        this.emit(':tell', 'Discarded as Requested');  
+    },
+    'AMAZON.StopIntent': function () {
+        this.emit(':tell', 'Discarded as Requested');  
+    },
+};
+
+ScrollDown to 'Execution Role'
+Select Template as - 'create a new role from one or more templates'
+Input Role Name as - 'lambda_basic_execution'
+Click on 'Designer' -> Add Triggers -> Select 'Alexa Skills Kit'
+Scroll down to 'Configure Triggers'
+Copy Skill ID from developer.amazon.com-> Endpoints -> Skil Id
+Paste in 'Skill Id' under 'Configure Triggers'
+Click on 'Add'
+Click on 'Save'
+Record ARN - arn:aws:lambda:us-east-1:171880616790:function:nennepedia
+Copy ARN
+Go to developer.amazon.com
+Go to 'EndPoint' 
+Select 'AWS Lambda ARN'
+Paste 'ARN Value' in 'Default Region' Input box
+Click 'Save Endpoints'
+Click on 'Test' in Menu Bar
+Enable 'Test is Disabled for this skill'
+Click on 'Your Skills' in Menu Bar
+Again Click on 'Test' Menu Bar
+Type 'Invocation Name' and Press 'Enter'
+Go to aws.amazon.com
+Go to Lambda -> Functions -> <FunctionName>
+
