@@ -2,3 +2,21 @@ Fact Skill
 https://developer.amazon.com/alexa-skills-kit/tutorials/fact-skill-1
 https://github.com/alexa/skill-sample-python-fact
 https://blog.prototypr.io/using-voice-commands-to-control-a-website-with-amazon-echo-alexa-part-1-6-a35edbfef405
+
+Creating of Alexa Interaction Model Skill - 
+Open developer.amazon.com
+Open aws.amazon.com
+Login into developer.amazon.com
+Click on 'Alexa' Link
+Click 'Your Alexa Consoles' -> Skills
+Click on 'Create Skill'
+Input 'Skill Name' & Select 'Default Language'
+Select 'Custom' Model to add to your Skill Interactions
+Click on 'Create Skill'
+Choose a Template -> Select 'Start from Scratch'
+Click on 'Choose'
+Click on 'Invocation Name' -> Input '<Invocation Name>'
+Click on 'Intents, Samples and Slots'
+Click on 'Add' next to 'Intents'
+Select 'Create Custom Intent' Under 'Add Intent'
+Input '<Name of Intention>' and click on 'Create Custom Intent' Button
