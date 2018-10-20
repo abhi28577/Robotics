@@ -120,7 +120,8 @@ Click on 'Test' in Menu Bar
 Enable 'Test is Disabled for this skill'
 Click on 'Your Skills' in Menu Bar
 Again Click on 'Test' Menu Bar
-Type 'Invocation Name' and Press 'Enter'
+Type 'Invocation Name' and Press 'Enter' -> Alexa will speak up
+Now Code and Add User-Defined Intents in Function for Database to Store and Retrieved later
 Go to aws.amazon.com
 Go to Lambda -> Functions -> <FunctionName>
-
+Go to Code Editor
