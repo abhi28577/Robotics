@@ -20,3 +20,5 @@ Click on 'Intents, Samples and Slots'
 Click on 'Add' next to 'Intents'
 Select 'Create Custom Intent' Under 'Add Intent'
 Input '<Name of Intention>' and click on 'Create Custom Intent' Button
+Input Utterances in 'Sample Utterances' against 'Intent'
+Input 'Input Slot' against 'Sample  Utterance' with <Slot Type>
