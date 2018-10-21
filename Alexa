@@ -147,5 +147,38 @@ Input 'AmazonDynamoDBFullAccess' within '<Filter Policies>'
 Click on '<ChechBox>' against 'AmazonDynamoDBFullAccess'
 Click on 'Attach Policy'
 Verify 'AmazonDynamoDBFullAccess' exists under '<Permissions Policies>'
+Go to Lambda -> Function -> Code Line Editor
+Add ' const AWS = require('aws-sdk');' just below 'const Alexa = require('alexa-sdk');'
+Add Code within User-Defined Function - 
+var params = {
+            TableName: "NenneSearchEngine",
+            Key:{
+            "SearchText": 'Animal',
+            },
+            UpdateExpression: "set AnimalType = :AnimalValue",
+            ExpressionAttributeValues: {
+            ":AnimalValue" : animalval
+        }
+    };
+Updated Code - 
+'searchextinctintent': function () {
+        var docClient = new AWS.DynamoDB.DocumentClient();
+        var animalval = this.event.request.intent.slots.Animal.value;
+        var params = {
+            TableName: "NenneSearchEngine",
+            Key:{
+            "SearchText": 'Animal',
+            },
+            UpdateExpression: "set AnimalType = :AnimalValue",
+            ExpressionAttributeValues: {
+            ":AnimalValue" : animalval
+        }
+    };
+    docClient.update(params, (() => {
+        this.emit(':ask', 'You Confirmed as:' + animalval);  
+    }));
+        
+    },
+
 
 
