@@ -87,7 +87,7 @@ const handlers = {
 In the ‘LaunchRequest’: function () { } code, add the following between the curly braces, so that your code looks like this:
 const handlers = {
     'LaunchRequest': function () {
-        this.emit(':tell', 'Welcome to Nennepedia');
+        this.emit(':ask', 'Welcome to Nennepedia');
     },
     'AMAZON.HelpIntent': function () {
         this.emit(':tell', 'Dear Listener, What Information would you like to know?');  
@@ -125,3 +125,27 @@ Now Code and Add User-Defined Intents in Function for Database to Store and Retr
 Go to aws.amazon.com
 Go to Lambda -> Functions -> <FunctionName>
 Go to Code Editor
+
+Creating a Database on aws.amazon.com
+Go to AWS Services
+Input 'DynamoDB' which is NOSQL Database
+Click 'Create Table'
+Input '<TableName>'
+Input '<Primary Key>'
+Click 'Create'
+Click on 'Items' Tab
+Verify <TableName> and <PrimaryKey>
+Go to lambda -> Function
+Change Role Permission for granting and updating DynamoDB Table
+Check 'lambda_basic_execution' under <Execution Role> Section
+Go to AWS Services -> IAM
+Click 'Roles' from Dashboard
+Verify 'lambda_basic_execution' exists under 'Role Name'
+Click on 'lambda_basic_execution' for further details
+Click 'Attach Policies'
+Input 'AmazonDynamoDBFullAccess' within '<Filter Policies>'
+Click on '<ChechBox>' against 'AmazonDynamoDBFullAccess'
+Click on 'Attach Policy'
+Verify 'AmazonDynamoDBFullAccess' exists under '<Permissions Policies>'
+
+
