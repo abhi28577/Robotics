@@ -179,6 +179,20 @@ Updated Code -
     }));
         
     },
+    
+ Go to developer.amazon.com -> Test -> open find lucy {<Animal as given in Dynamo Database}
+ Now Go to Lambda -> Create Function ->Select 'Author from Scratch'
+ Input '<Function Name>'
+ Select 'Create a Custom Role'
+ Select 'lambda_basic_function' from IAM Role
+ Select 'oneClick_lambda_basic_execution' from Policy List
+ Click 'Allow'
+ Click 'Create Function'
+ Type Code - 
+ 
+ 
+ 
+ 
 
 
 
