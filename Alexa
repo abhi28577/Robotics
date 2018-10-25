@@ -188,9 +188,58 @@ Updated Code -
  Select 'oneClick_lambda_basic_execution' from Policy List
  Click 'Allow'
  Click 'Create Function'
+ Click on 'Test'
+ Input 'Event Name' -> Click 'Create'
  Type Code - 
+ 'use strict';
+var AWS = require ("aws-sdk");
+var dynamodb = new AWS.DynamoDB();
+var docClient = new AWS.DynamoDB.DocumentClient();
+
+var params = {
+    TableName: "NenneSearchEngine",
+    Key: {
+        "SearchText": 'Animal'
+    }
+};
+
+var SearchInfo = "";
+
+exports.handler = (event, context, callback) => {
+    // TODO implement
+    docClient.get(params, function(err, data) {
+        if (err) {
+            return console.error("that didn't work");
+        }
+        var payload = JSON.stringify(data, null, 2);
+        var obj = JSON.parse(payload);
+        SearchInfo = obj.Item.AnimalType;
+    
+        callback(null, {"Search Information:":SearchInfo});
+    });
+};
  
- 
+Save the Code
+Click on 'Test' in 'Lambda Console' -> Verify the Text Message
+
+Go to aws.amazon.com
+Search 'API Gateway' -> Click
+Click on 'Get Started' -> Click 'Ok' -> Click 'New API'
+Input 'API Name' -> Click on 'Create API'
+Click on 'Actions' -> Select 'Create Method'
+Click on Drop-Down List -> Select 'GET' -> Click on 'Small CheckMark'
+Click on 'Lambda Function' in 'Integration Type'
+Select 'us-east-1' in 'Lambda Region'
+Input '<Function Name>' which interacts with DynamoDB for extracting Information.. -> Click 'Save' -> Click 'Ok'
+Click on 'Test' Button
+Click on 'Test' Button Again -> Verify <Response Body> and <Response Headers>
+Click on 'Actions' -> Select 'Enable CORS'
+Click 'Enable CORS and replace existing CORS Headers' -> Click 'Yes, replace existing values'
+Click 'Actions' -> Select 'Deploy API' -> Selecy <Deployment Stage> as '[New Stage]'
+Input 'Stage Name' as 'PROD' -> Click on 'Deploy'
+Click on 'https://s1x2n71d3c.execute-api.us-east-1.amazonaws.com/PROD' -> Verify the Searched Information
+
+
  
  
 
