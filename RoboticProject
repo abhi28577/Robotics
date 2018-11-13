@@ -52,3 +52,15 @@ WebSite Reference -
 https://github.com/HackerShackOfficial/Raspberry-Pi-VNC-Mac
 https://www.lifehacker.com.au/2016/10/how-to-build-your-own-amazon-echo-with-a-raspberry-pi/
 https://github.com/carolinedunn/Alexa-RPi-AutoStart
+----------------------------------------------------------------------------------------------------------------------------------------
+import requests
+from bs4 import BeautifulSoup
+import webbrowser
+
+page_link='http://www.nennepedia.org/?s=gan'
+
+page_response = requests.get(page_link, timeout=5)
+
+page_content = BeautifulSoup(page_response.content, "html.parser")
+Heading2 = page_content.find_all("h2").text
+print(Heading2)
