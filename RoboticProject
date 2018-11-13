@@ -57,10 +57,14 @@ import requests
 from bs4 import BeautifulSoup
 import webbrowser
 
-page_link='http://www.nennepedia.org/?s=gan'
+page_search='http://www.nennepedia.org/?s=gan'
 
-page_response = requests.get(page_link, timeout=5)
+page_response = requests.get(page_search, timeout=5)
 
 page_content = BeautifulSoup(page_response.content, "html.parser")
 Heading2 = page_content.find_all("h2").text
 print(Heading2)
+
+page_link = 'http://www.nennepedia.org/h2
+page_response = requests.get(page_link, timeout=5)
+page_content = BeautifulSoup(page_response.content, "html.parser")
