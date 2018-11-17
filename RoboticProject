@@ -46,6 +46,8 @@ Raspberry Settings
 Raspberry Pi - Screensharing Password - 12345678
 To Start Raspberry Pi Desktop - sudo /etc/init.d/avahi-daemon restart
 UserName/Password for Connect As - pi/raspberry
+
+Installing TightVNCServer - https://gist.github.com/cobyism/4985035
 Screen Sharing using MAC - sudo /etc/init.d/tightvncserver start
 
 WebSite Reference - 
