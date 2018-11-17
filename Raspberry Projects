@@ -17,6 +17,7 @@ https://stackoverflow.com/questions/43012023/pyttsx-error-cannot-find-module-nam
 https://stackoverflow.com/questions/48869146/pyttsx-error-mac-cannot-find-module-named-foundation
 Voice Assistant Search Bot - https://cristivlad.com/alpha-version-my-voice-triggered-search-bot-python/
 Pyaudio Installation - https://stackoverflow.com/questions/45052902/osx-include-portaudio-h-1-error-generated-error-command-usr-bin-clang
+Pyaudio Installation on RaspberryPi - https://raspberrypi.stackexchange.com/questions/84666/problem-on-installing-pyaudio-on-raspberry-pi
 HyperLink - https://stackoverflow.com/questions/46490626/getting-all-links-from-a-page-beautiful-soup
 Raspberry pi Startup Python Programs - https://www.youtube.com/watch?v=DkqzLHopaeE
 Raspberry pi AutoBoot - https://www.youtube.com/watch?v=bInyVQhMp30
@@ -31,3 +32,4 @@ Installation Python3.7 on Raspbian - https://gist.github.com/SeppPenner/6a5a30eb
 Maintaining Python Versions Intact - https://raspberrypi.stackexchange.com/questions/82644/default-python-version-and-pip-problem
 https://stackoverflow.com/questions/43062608/how-to-update-alternatives-to-python-3-without-breaking-apt
 To run Python3 on latest Python Version - https://askubuntu.com/questions/1070610/having-troubles-updating-to-python-3-6-on-ubuntu-16-04
+Shut Down of Raspberry Pi -> sudo shutdown -h now
