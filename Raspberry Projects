@@ -33,3 +33,4 @@ Maintaining Python Versions Intact - https://raspberrypi.stackexchange.com/quest
 https://stackoverflow.com/questions/43062608/how-to-update-alternatives-to-python-3-without-breaking-apt
 To run Python3 on latest Python Version - https://askubuntu.com/questions/1070610/having-troubles-updating-to-python-3-6-on-ubuntu-16-04
 Shut Down of Raspberry Pi -> sudo shutdown -h now
+Open Jack Server for ALSA Settings - qjackctl
