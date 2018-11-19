@@ -34,3 +34,9 @@ https://stackoverflow.com/questions/43062608/how-to-update-alternatives-to-pytho
 To run Python3 on latest Python Version - https://askubuntu.com/questions/1070610/having-troubles-updating-to-python-3-6-on-ubuntu-16-04
 Shut Down of Raspberry Pi -> sudo shutdown -h now
 Open Jack Server for ALSA Settings - qjackctl
+ALSA Configuration - 
+https://github.com/nickoala/aiy-voice-only
+https://github.com/binnes/tobyjnr/wiki/Getting-Sound-to-work-on-the-Raspberry-Pi
+https://rbnrpi.wordpress.com/category/pisound/
+https://iotbytes.wordpress.com/connect-configure-and-test-usb-microphone-and-speaker-with-raspberry-pi/
+https://stackoverflow.com/questions/47188528/how-to-set-default-microphone-on-raspberry-pi-3b-with-raspbian-stretch
