@@ -14,4 +14,6 @@ Slack Event Subscription Steps -
 - https://chenlego.me/2017/08/20/slackapi-how-to-well-done-the-url-verification-of-event-api/
 Nennebot Site URL - https://api.slack.com/apps/AHQDJ07NE
 Slack Command - https://medium.com/crowdbotics/slack-api-tutorial-how-to-build-a-simple-slack-app-that-tells-you-real-time-cryptocurrency-prices-c78778a40bb4
-
+- https://towardsdatascience.com/python-and-slack-a-natural-match-60b136883d4d
+- https://code.tutsplus.com/articles/building-a-slack-bot-using-python--cms-29668
+- https://realpython.com/getting-started-with-the-slack-api-using-python-and-flask/
