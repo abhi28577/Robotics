@@ -1,8 +1,95 @@
 Login into Raspberry Pi 3 - ssh pi@192.168.2.6/ssh pi@<IP Address>
 Update /Users/abhi28577/.ssh/known_hosts when needed - sudo nano /Users/abhi28577/.ssh/known_hosts
 
-Install tightvncserver - 
+
+Install tightvncserver/DAemon Service for Rasberry Desktop -  https://www.youtube.com/watch?v=2iVK8dn-6x4 (YouTube)
+https://github.com/HackerShackOfficial/Raspberry-Pi-VNC-Mac
+sudo apt-get update
 sudo apt-get install tightvncserver
+After Installation of vncserver-
+- tightvncserver
+- Set Password
+- Verify Password
+- Y/n if Read-Only Password
+sudo apt-get install netatalk
+Open 'Finder' Window -> Type 'Command + K' -> Type afp://<raspberry IP Address> or afp://192.168.2.6 -> Connect
+Enter Name/UserName - pi and Password - raspberry -> Connect
+Install avahi-daemon -> sudo apt-get install avahi-daemon
+sudo update-rc.d avahi-daemon defaults
+sudo nano /etc/avahi/services/afpd.service
+
+then add
+
+<?xml version="1.0" standalone='no'?><!--*-nxml-*-->
+<!DOCTYPE service-group SYSTEM "avahi-service.dtd">
+<service-group>
+   <name replace-wildcards="yes">%h</name>
+   <service>
+      <type>_afpovertcp._tcp</type>
+      <port>548</port>
+   </service>
+</service-group>
+
+sudo /etc/init.d/avahi-daemon restart
+
+Will show the Pi in the sidebar on your Mac by default.
+
+cd /etc/init.d
+sudo nano tightvncserver
+# add Code given below
+
+#!/bin/bash
+# /etc/init.d/tightvncserver
+# Carry out specific functions when asked to by the system
+case "$1" in
+start)
+    su pi -c '/usr/bin/vncserver -geometry 1920x1080'
+    echo "Starting VNC server "
+    ;;
+stop)
+    pkill vncserver
+    echo "VNC Server has been stopped (didn't double check though)"
+    ;;
+*)
+    echo "Usage: /etc/init.d/blah {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0
+
+
+
+
+
+# Change the permissions of the file you just created
+
+sudo chmod +x tightvncserver
+
+kill the server
+
+sudo pkill Xtightvnc
+sudo /etc/init.d/tightvncserver start
+cd /etc/init.d
+sudo update-rc.d tightvncserver defaults
+Create one more file
+
+sudo vim /etc/avahi/services/rfb.service
+and add this content:
+
+<?xml version="1.0" standalone='no'?>
+<!DOCTYPE service-group SYSTEM "avahi-service.dtd">
+<service-group>
+  <name replace-wildcards="yes">%h</name>
+  <service>
+    <type>_rfb._tcp</type>
+    <port>5901</port>
+  </service>
+</service-group>
+Finally, run
+
+sudo /etc/init.d/avahi-daemon restart
+---------------------------------------------
 
 UnInstall tightvncserver - 
 sudo apt-get remove tightvncserver
