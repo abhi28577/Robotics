@@ -1,4 +1,5 @@
 Login into Raspberry Pi 3 - ssh pi@192.168.2.6/ssh pi@<IP Address>
+Update /Users/abhi28577/.ssh/known_hosts when needed - sudo nano /Users/abhi28577/.ssh/known_hosts
 
 
 http://www.tecoed.co.uk/drone-hacks.html
