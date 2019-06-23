@@ -91,6 +91,9 @@ Finally, run
 sudo /etc/init.d/avahi-daemon restart
 ---------------------------------------------
 
+Raspberry Pi Projects - https://makersportal.com
+--------------------------------------------
+
 UnInstall tightvncserver - 
 sudo apt-get remove tightvncserver
 
