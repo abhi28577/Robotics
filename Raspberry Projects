@@ -94,6 +94,8 @@ sudo /etc/init.d/avahi-daemon restart
 Raspberry Pi Projects - https://makersportal.com
 --------------------------------------------
 
+Install PyTorch on Raspberry Pi - https://medium.com/hardware-interfacing/how-to-install-pytorch-v4-0-on-raspberry-pi-3b-odroids-and-other-arm-based-devices-91d62f2933c7
+----------------------------------------------
 UnInstall tightvncserver - 
 sudo apt-get remove tightvncserver
 
